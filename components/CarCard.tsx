@@ -1,4 +1,6 @@
 import { CarProps } from "@/types";
+import { calculateCarRent } from "@/utils";
+import Image from "next/image";
 import React from "react";
 
 type CarCarsProps = {
@@ -19,6 +21,9 @@ const CarCard = ({ car }: CarCarsProps) => {
     transmission,
     year,
   } = car;
+
+  const carRent = calculateCarRent(city_mpg, year);
+
   return (
     <div className="car-card group">
       <div className="car-card__content">
@@ -27,9 +32,21 @@ const CarCard = ({ car }: CarCarsProps) => {
         </h2>
       </div>
 
-      <p>
-        <span>Car Rent...</span>
+      <p className="flex mt-6 text-[33px] font-extrabold">
+        <span className="self-start text-[15px] font-medium">$</span>
+        <span>{carRent}</span>
+        <span className="self-end text-[14px] font-medium">/day</span>
       </p>
+
+      <div className="relative w-full h-40 my-3 object-contain">
+        <Image
+          src={"/hero.png"}
+          fill
+          priority
+          className="object-contain"
+          alt="car type"
+        />
+      </div>
     </div>
   );
 };
