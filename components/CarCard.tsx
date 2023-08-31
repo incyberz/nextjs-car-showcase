@@ -1,7 +1,9 @@
+"use client";
 import { CarProps } from "@/types";
 import { calculateCarRent } from "@/utils";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import CustomButton from "./CustomButton";
 
 type CarCarsProps = {
   car: CarProps;
@@ -23,6 +25,8 @@ const CarCard = ({ car }: CarCarsProps) => {
   } = car;
 
   const carRent = calculateCarRent(city_mpg, year);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="car-card group">
@@ -46,6 +50,41 @@ const CarCard = ({ car }: CarCarsProps) => {
           className="object-contain"
           alt="car type"
         />
+      </div>
+
+      <div className="bg-red-500 relative flex w-full mt-2">
+        <div className="bg-blue-500 flex group-hover:invisible w-full justify-between text-gray">
+          <div className="flex flex-col justify-center items-center gap-2">
+            <Image
+              src={"/steering-wheel.svg"}
+              width="20"
+              height="20"
+              alt="steering wheel icon"
+            />
+            <p className="text-[14px]">
+              {transmission === "a" ? "Automatic" : "Manual"}
+            </p>
+          </div>
+
+          <div className="flex flex-col justify-center items-center gap-2">
+            <Image src={"/tire.svg"} width="20" height="20" alt="tire icon" />
+            <p className="text-[14px]">{drive.toUpperCase()}</p>
+          </div>
+
+          <div className="flex flex-col justify-center items-center gap-2">
+            <Image src={"/gas.svg"} width="20" height="20" alt="gas icon" />
+            <p className="text-[14px]">{city_mpg} MPG</p>
+          </div>
+        </div>
+
+        <div className="bg-purple-500 car-card__btn-container">
+          <CustomButton
+            title="View more..."
+            styles="w-full py-[17px] rounded-full bg-primary-blue text-white text-[14px] leading-[17px] font-bold"
+            rightIcon="/right-arrow.svg"
+            handleClick={() => setIsOpen(true)}
+          />
+        </div>
       </div>
     </div>
   );

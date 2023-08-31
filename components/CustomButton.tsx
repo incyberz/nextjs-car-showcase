@@ -4,13 +4,16 @@ import Image from "next/image";
 
 export default function CustomButton({
   title,
-  containerStyles,
+  styles,
   handleClick,
   btnType,
+  rightIcon,
+  leftIcon,
+  isDisabled,
 }: CustomButtonProps) {
   return (
     <button
-      className={`custom-btn ${containerStyles}`}
+      className={`custom-btn ${styles}`}
       disabled={false}
       type={btnType || "button"}
       onClick={handleClick}
