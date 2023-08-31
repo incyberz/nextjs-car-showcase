@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import CustomButton from "./CustomButton";
 import CarDetails from "./CarDetails";
+import { randomInt } from "crypto";
 
 type CarCarsProps = {
   car: CarProps;
@@ -29,6 +30,8 @@ const CarCard = ({ car }: CarCarsProps) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  let randomCar = (1 + Math.floor(Math.random() * 4)).toString();
+
   return (
     <div className="car-card group">
       <div className="car-card__content">
@@ -45,7 +48,7 @@ const CarCard = ({ car }: CarCarsProps) => {
 
       <div className="relative w-full h-40 my-3 object-contain">
         <Image
-          src={generateCarImageUrl(car)}
+          src={generateCarImageUrl(car, randomCar)}
           fill
           priority
           className="object-contain"

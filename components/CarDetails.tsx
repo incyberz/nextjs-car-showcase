@@ -56,9 +56,10 @@ const CarDetails = ({ car, isOpen, closeModal }: CarDetailsProps) => {
 
                   <div className="flex-1 flex flex-col gap-3">
                     {/* CAR-DETAIL-TOP ======= */}
-                    <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
+                    {/* <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg"> */}
+                    <div className="relative w-full h-40 bg-white bg-cover bg-center rounded-lg border border-blue-700 border-4 border-opacity-30">
                       <Image
-                        src={generateCarImageUrl(car)}
+                        src={generateCarImageUrl(car, "1")}
                         alt="car-detail-top"
                         fill
                         priority
@@ -70,7 +71,7 @@ const CarDetails = ({ car, isOpen, closeModal }: CarDetailsProps) => {
                     <div className="flex gap-3">
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                          src={generateCarImageUrl(car, "29")}
+                          src={generateCarImageUrl(car, "2")}
                           alt="car-detail-sub"
                           fill
                           priority
@@ -79,7 +80,7 @@ const CarDetails = ({ car, isOpen, closeModal }: CarDetailsProps) => {
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                          src={generateCarImageUrl(car, "33")}
+                          src={generateCarImageUrl(car, "3")}
                           alt="car-detail-sub"
                           fill
                           priority
@@ -88,7 +89,7 @@ const CarDetails = ({ car, isOpen, closeModal }: CarDetailsProps) => {
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                          src={generateCarImageUrl(car, "13")}
+                          src={"/cars/toyota-4.jpg"}
                           alt="car-detail-sub"
                           fill
                           priority

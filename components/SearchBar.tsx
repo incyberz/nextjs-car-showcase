@@ -1,6 +1,9 @@
 "use client";
 import { useState } from "react";
 import SearchManufacturer from "./SearchManufacturer";
+import Image from "next/image";
+import { SearchButtonProps } from "@/types";
+import SearchButton from "./SearchButton";
 
 const SearchBar = () => {
   const handleSearch = () => {};
@@ -13,6 +16,7 @@ const SearchBar = () => {
           manufacturer={manufacturer}
           setManufacturer={setManufacturer}
         />
+        <SearchButton otherClasses="zzzsm:hidden" />
       </div>
     </form>
   );
