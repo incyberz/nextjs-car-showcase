@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import { CarProps } from "@/types";
 import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
+import { generateCarImageUrl } from "@/utils";
 
 export interface CarDetailsProps {
   car: CarProps;
@@ -57,7 +58,7 @@ const CarDetails = ({ car, isOpen, closeModal }: CarDetailsProps) => {
                     {/* CAR-DETAIL-TOP ======= */}
                     <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
                       <Image
-                        src={"/hero.png"}
+                        src={generateCarImageUrl(car)}
                         alt="car-detail-top"
                         fill
                         priority
@@ -69,7 +70,7 @@ const CarDetails = ({ car, isOpen, closeModal }: CarDetailsProps) => {
                     <div className="flex gap-3">
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                          src={"/hero.png"}
+                          src={generateCarImageUrl(car, "29")}
                           alt="car-detail-sub"
                           fill
                           priority
@@ -78,7 +79,7 @@ const CarDetails = ({ car, isOpen, closeModal }: CarDetailsProps) => {
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                          src={"/hero.png"}
+                          src={generateCarImageUrl(car, "33")}
                           alt="car-detail-sub"
                           fill
                           priority
@@ -87,7 +88,7 @@ const CarDetails = ({ car, isOpen, closeModal }: CarDetailsProps) => {
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                          src={"/hero.png"}
+                          src={generateCarImageUrl(car, "13")}
                           alt="car-detail-sub"
                           fill
                           priority
