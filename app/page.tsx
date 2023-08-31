@@ -7,6 +7,7 @@ export default async function Home() {
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   // console.log(allCars);
+  let carNo: number = 0;
 
   return (
     <main className="overflow-hidden">
@@ -35,9 +36,10 @@ export default async function Home() {
         ) : (
           <section>
             <div className="home__cars-wrapper">
-              {allCars?.map((car) => (
-                <CarCard key={car.city_mpg} car={car} />
-              ))}
+              {allCars?.map((car) => {
+                carNo++;
+                return <CarCard key={carNo} car={car} />;
+              })}
             </div>
           </section>
         )}
