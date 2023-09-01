@@ -9,9 +9,10 @@ import { randomInt } from "crypto";
 
 type CarCarsProps = {
   car: CarProps;
+  carNo: number;
 };
 
-const CarCard = ({ car }: CarCarsProps) => {
+const CarCard = ({ car, carNo }: CarCarsProps) => {
   const {
     city_mpg,
     combination_mpg,
@@ -30,7 +31,8 @@ const CarCard = ({ car }: CarCarsProps) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  let randomCar = (1 + Math.floor(Math.random() * 4)).toString();
+  // let randomCar = (1 + Math.floor(Math.random() * 4)).toString();
+  let carNoMod4 = (1 + (carNo % 4)).toString();
 
   return (
     <div className="car-card group">
@@ -48,7 +50,7 @@ const CarCard = ({ car }: CarCarsProps) => {
 
       <div className="relative w-full h-40 my-3 object-contain">
         <Image
-          src={generateCarImageUrl(car, randomCar)}
+          src={generateCarImageUrl(car, carNoMod4)}
           fill
           priority
           className="object-contain"

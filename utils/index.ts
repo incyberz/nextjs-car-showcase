@@ -1,12 +1,17 @@
-import { CarProps } from "@/types";
+import { CarProps, FilterProps } from "@/types";
 
-export async function fetchCars() {
+export async function fetchCars(filters:FilterProps) {
+
+  const {manufacturer,model,year,limit,fuel} = filters
+  const fetchUrl = `https://api.api-ninjas.com/v1/cars?model=${model}&make=${manufacturer}&year=${year}&limit=${limit}&fuel_type=${fuel}`
+  
+
   const headers = {
     'X-Api-Key' : 'hS2WfGN1SFFXEZyVUtmhYA==OEFEQkDbthHNndCM'
     ,'X-Api-Host' : 'https://api.api-ninjas.com/v1/cars?model=camry'
   }
 
-  const response = await fetch('https://api.api-ninjas.com/v1/cars?model=camry',{
+  const response = await fetch(fetchUrl,{
     headers:headers
   })
 
@@ -50,4 +55,11 @@ export const generateCarImageUrl = (car:CarProps, angle?:string) =>{
   // url.searchParams.append('angle',`${angle}`)
 
   // return `${url}`
+}
+
+export const updateSearchParams = (type:string, value:string)=>{
+  const searchParams = new URLSearchParams(window.location.search)
+
+  searchParams.set(type,value)
+  return `${window.location.pathname}?${searchParams.toString()}`
 }

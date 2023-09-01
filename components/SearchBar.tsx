@@ -4,11 +4,44 @@ import SearchManufacturer from "./SearchManufacturer";
 import Image from "next/image";
 import { SearchButtonProps } from "@/types";
 import SearchButton from "./SearchButton";
+import { useRouter } from "next/navigation";
 
 const SearchBar = () => {
-  const handleSearch = () => {};
   const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
+  const router = useRouter();
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (manufacturer === "" && model === "") {
+      return alert("Please fill in the search bar!");
+    }
+
+    updateSearchParams(manufacturer.toLocaleLowerCase(), model.toLowerCase());
+  };
+
+  const updateSearchParams = (manufacturer: string, model: string) => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    if (manufacturer) {
+      searchParams.set("manufacturer", manufacturer);
+    } else {
+      searchParams.delete("manufacturer");
+    }
+
+    if (model) {
+      searchParams.set("model", model);
+    } else {
+      searchParams.delete("model");
+    }
+
+    const newPathName = `${
+      window.location.pathname
+    }?${searchParams.toString()}`;
+    console.log(newPathName, "zzz");
+    router.push(newPathName);
+  };
 
   return (
     <form onSubmit={handleSearch} className="searchbar debug">
