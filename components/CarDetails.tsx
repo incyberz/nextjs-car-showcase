@@ -7,13 +7,14 @@ import { generateCarImageUrl } from "@/utils";
 
 export interface CarDetailsProps {
   car: CarProps;
+  carId: number;
   isOpen: boolean;
   closeModal: () => void;
 }
 
-const CarDetails = ({ car, isOpen, closeModal }: CarDetailsProps) => {
+const CarDetails = ({ car, carId, isOpen, closeModal }: CarDetailsProps) => {
   return (
-    <>
+    <React.Fragment key={carId}>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className={"relative z-10"} onClose={closeModal}>
           <Transition.Child
@@ -57,7 +58,7 @@ const CarDetails = ({ car, isOpen, closeModal }: CarDetailsProps) => {
                   <div className="flex-1 flex flex-col gap-3">
                     {/* CAR-DETAIL-TOP ======= */}
                     {/* <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg"> */}
-                    <div className="relative w-full h-40 bg-white bg-cover bg-center rounded-lg border border-blue-700 border-4 border-opacity-30">
+                    <div className="relative w-full h-40 bg-white bg-cover bg-center rounded-lg  border-blue-700 border-4 border-opacity-30">
                       <Image
                         src={generateCarImageUrl(car, "1")}
                         alt="car-detail-top"
@@ -122,7 +123,7 @@ const CarDetails = ({ car, isOpen, closeModal }: CarDetailsProps) => {
           </div>
         </Dialog>
       </Transition>
-    </>
+    </React.Fragment>
   );
 };
 
