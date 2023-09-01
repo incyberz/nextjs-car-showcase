@@ -8,14 +8,14 @@ const Footer = () => (
     <div className="flex max-md:flex-col flex-wrap justify-between gap-5 sm:px-16 px-6 py-10">
       <div className="flex flex-col justify-start items-start gap-6">
         <Image
-          src="/logo.svg"
+          src="/logo.png"
           alt="logo"
           width={118}
           height={18}
           className="object-contain"
         />
         <p className="text-base text-gray-700">
-          Carhub 2023 <br />
+          KingsCar 2023 <br />
           All Rights Reserved &copy;
         </p>
       </div>
@@ -41,14 +41,29 @@ const Footer = () => (
     </div>
 
     <div className="flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10">
-      <p>@2023 CarHub. All rights reserved</p>
+      <div className="flex gap-5 flex-wrap mb-6">
+        <div>Created With</div>
+        <ul className="flex gap-4 flex-wrap ">
+          <li className="tech">Next.JS13</li>
+          <li className="tech">Typescript</li>
+          <li className="tech">Headless-UI</li>
+          <li className="tech">Cars-API</li>
+        </ul>
+      </div>
 
-      <div className="footer__copyrights-link">
+      <div className="footer__copyrights-link flex-wrap">
         <Link href={"/"} className="text-gray-500">
           Privacy & Policy
         </Link>
         <Link href={"/"} className="text-gray-500">
           Terms & Condition
+        </Link>
+        <Link
+          target="_blank"
+          href={"https://iinbinkoswara.vercel.app"}
+          className=" flex items-center text-center bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-600"
+        >
+          Iin bin Koswara @Vercel
         </Link>
       </div>
     </div>

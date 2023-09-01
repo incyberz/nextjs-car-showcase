@@ -58,8 +58,8 @@ const CarCard = ({ car, carNo }: CarCarsProps) => {
         />
       </div>
 
-      <div className="bg-red-500 relative flex w-full mt-2">
-        <div className="bg-blue-500 flex group-hover:invisible w-full justify-between text-gray">
+      <div className=" relative flex w-full mt-2">
+        <div className=" flex group-hover:invisible w-full justify-between text-gray">
           <div className="flex flex-col justify-center items-center gap-2">
             <Image
               src={"/steering-wheel.svg"}
@@ -83,7 +83,7 @@ const CarCard = ({ car, carNo }: CarCarsProps) => {
           </div>
         </div>
 
-        <div className="bg-purple-500 car-card__btn-container">
+        <div className=" car-card__btn-container">
           <CustomButton
             title="View more..."
             styles="w-full py-[17px] rounded-full bg-primary-blue text-white text-[14px] leading-[17px] font-bold"
