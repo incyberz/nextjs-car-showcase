@@ -41,7 +41,7 @@ export const generateCarImageUrl = (car:CarProps, angle?:string) =>{
 
   if(!angle) angle='1';
 
-  const url = '/cars/'+make.toLowerCase()+'-'+angle+'.jpg';
+  const url = '/cars/'+make.split(' ').join('-').toLowerCase()+'-'+angle+'.jpg';
   return url;
   
   // const url = new URL('https://cdn.imagin.studio/getimage')

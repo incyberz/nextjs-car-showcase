@@ -4,29 +4,24 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 
 export default function Hero() {
-  const handleScroll = () => {
-    // console.log("handleScroll");
-  };
+  // const handleScroll = () => {};
   return (
     <div className="hero">
       <div className="flex-1 pt-36 padding-x">
-        <h1 className="hero__title">
-          Find, book, or rent a car - quick and easily
-        </h1>
+        <h1 className="hero__title">Kingdom of Cars</h1>
         <p className="hero__subtitle">
-          Streamline your car rental experience with our effortless booking
-          process.
+          The Best Place to find, book, or rent Your Dream Cars!
         </p>
-        <CustomButton
+        {/* <CustomButton
           title="Explore Cars"
           styles="bg-primary-blue text-white rounded-full mt-10"
           handleClick={handleScroll}
-        />
+        /> */}
 
         <div className="hero__image-container">
           <div className="hero__image">
             <Image
-              src="/hero.png"
+              src="/hero-jaguar.png"
               alt="Your dream cars"
               fill
               className="object-contain"
