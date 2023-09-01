@@ -9,10 +9,10 @@ import { randomInt } from "crypto";
 
 type CarCarsProps = {
   car: CarProps;
-  carNo: number;
+  carId: number;
 };
 
-const CarCard = ({ car, carNo }: CarCarsProps) => {
+const CarCard = ({ car, carId }: CarCarsProps) => {
   const {
     city_mpg,
     combination_mpg,
@@ -32,7 +32,7 @@ const CarCard = ({ car, carNo }: CarCarsProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // let randomCar = (1 + Math.floor(Math.random() * 4)).toString();
-  let carNoMod4 = (1 + (carNo % 4)).toString();
+  let carNoMod4 = (1 + (carId % 4)).toString();
 
   return (
     <div className="car-card group">
@@ -95,6 +95,7 @@ const CarCard = ({ car, carNo }: CarCarsProps) => {
 
       <CarDetails
         car={car}
+        carId={carId}
         isOpen={isOpen}
         closeModal={() => setIsOpen(false)}
       />

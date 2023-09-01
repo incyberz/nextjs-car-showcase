@@ -4,7 +4,19 @@ import { fuels, yearsOfProduction } from "@/constants";
 import { fetchCars } from "@/utils";
 import Image from "next/image";
 
-export default async function Home({ searchParams }) {
+type searchParamsProps = {
+  manufacturer: string;
+  model: string;
+  year: number;
+  fuel: string;
+  limit: number;
+};
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: searchParamsProps;
+}) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
     model: searchParams.model || "",
@@ -15,7 +27,7 @@ export default async function Home({ searchParams }) {
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   // console.log(allCars);
-  let carNo: number = 0;
+  let carId: number = 0;
 
   return (
     <main className="overflow-hidden">
@@ -45,8 +57,8 @@ export default async function Home({ searchParams }) {
           <section>
             <div className="home__cars-wrapper">
               {allCars?.map((car) => {
-                carNo++;
-                return <CarCard key={carNo} car={car} carNo={carNo} />;
+                carId++;
+                return <CarCard key={carId} car={car} carId={carId} />;
               })}
             </div>
             <ShowMore

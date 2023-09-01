@@ -23,7 +23,7 @@ const ShowMore = ({
     <div className="w-full flex-center gap-5 mt-10">
       {!isNext && (
         <CustomButton
-          title="More Cars"
+          title="Show More Cars"
           btnType="button"
           styles="bg-primary-blue rounded-full text-white"
           handleClick={handleNavigation}

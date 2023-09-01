@@ -40,7 +40,7 @@ const Footer = () => (
       </div>
     </div>
 
-    <div className="flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10">
+    <div className="flex justify-between gap-5 items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10">
       <div className="flex gap-5 flex-wrap mb-6">
         <div>Created With</div>
         <ul className="flex gap-4 flex-wrap ">
@@ -49,6 +49,17 @@ const Footer = () => (
           <li className="tech">Headless-UI</li>
           <li className="tech">Cars-API</li>
         </ul>
+      </div>
+      <div className="flex items-center text-xs text-gray-600 mb-5">
+        Thanks to: Adrian{" "}
+        <Link
+          href="https://www.youtube.com/@javascriptmastery"
+          target="_blank"
+          className="text-blue-900 "
+        >
+          @javascriptmastery
+        </Link>{" "}
+        for great tutorials.
       </div>
 
       <div className="footer__copyrights-link flex-wrap">
