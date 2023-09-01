@@ -217,3 +217,13 @@
   @apply cursor-default select-none py-2 pl-10 pr-4;
 }
 /* END: search manufacturer styles */
+
+.debug{
+  @apply !bg-red-800 !text-yellow-400
+}
+.debug-blue{
+  @apply !bg-blue-800 !text-yellow-400
+}
+.debug-yellow{
+  @apply !bg-yellow-300 !text-red-800
+}
